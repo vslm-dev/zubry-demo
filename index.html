@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Поляна Зубров — тур-домики в Архызе (демо)</title>
+<meta name="description" content="Демо-версия сайта: Поляна Зубров, тур-домики в селе Архыз.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --accent: #2f5d34; --accent-2: #3d7a44; --dark: #162b19; --wood: #e9d3ae; --cream: #faf6ef; --ink: #1d2422; --muted: #5f6b67; --line: #e6ddcd; --white: #fff; --radius: 20px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Manrope", system-ui, sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+  .demo-bar { background: var(--ink); color: #f3efe6; font-size: 14px; padding: 10px 0; }
+  .demo-bar .wrap { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  .demo-bar b { color: var(--wood); }
+  .demo-bar button { background: transparent; border: 1px solid rgba(255,255,255,.3); color: #fff; border-radius: 999px; padding: 4px 12px; cursor: pointer; font: inherit; }
+  header { position: sticky; top: 0; z-index: 20; background: rgba(250,246,239,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .nav { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand svg { width: 34px; height: 20px; flex: none; }
+  .brand span { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 24px; letter-spacing: .04em; line-height: 1; }
+  .brand small { display: block; font-size: 10px; letter-spacing: .3em; color: var(--muted); text-transform: uppercase; margin-top: 2px; }
+  .nav-links { display: flex; gap: 26px; font-size: 15px; color: var(--muted); }
+  .nav-links a:hover { color: var(--accent); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 14px 26px; font-weight: 700; font-size: 16px; cursor: pointer; border: 1px solid transparent; transition: transform .15s, background .15s; font-family: inherit; white-space: nowrap; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-2); }
+  .btn-ghost { background: rgba(255,255,255,.14); color: #fff; border-color: rgba(255,255,255,.4); }
+  .btn-line { border-color: var(--line); }
+  .btn-sm { padding: 10px 18px; font-size: 14px; }
+  .hero { position: relative; min-height: 88vh; display: flex; align-items: flex-end; color: #fff; overflow: hidden; padding: 0; }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,20,20,.15) 0%, rgba(10,20,20,.35) 45%, rgba(8,18,18,.85) 100%); }
+  .hero .wrap { position: relative; z-index: 1; padding-bottom: 56px; padding-top: 120px; }
+  .rating { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 600; backdrop-filter: blur(6px); }
+  .rating .stars { color: #ffd479; letter-spacing: 1px; }
+  .kicker { font-size: 14px; letter-spacing: .2em; text-transform: uppercase; opacity: .85; margin-top: 18px; }
+  .hero h1 { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: clamp(46px, 8vw, 92px); line-height: .98; margin: 6px 0 14px; }
+  .hero p { font-size: clamp(17px, 2vw, 20px); max-width: 600px; opacity: .92; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .book { position: relative; z-index: 2; margin-top: -40px; }
+  .book form { background: var(--white); border-radius: var(--radius); box-shadow: 0 20px 60px -20px rgba(20,40,35,.35); padding: 18px; display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 12px; align-items: end; }
+  .field label { display: block; font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+  .field input, .field select { width: 100%; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font: 500 16px "Manrope", sans-serif; color: var(--ink); background: var(--cream); }
+  .book .btn { height: 50px; }
+  section { padding: 84px 0; }
+  .eyebrow { color: var(--accent); font-weight: 700; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; }
+  h2 { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: clamp(36px, 5vw, 54px); line-height: 1.05; margin: 8px 0 14px; }
+  .sub { color: var(--muted); max-width: 620px; font-size: 17px; }
+  .about { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+  .about-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .about-photos img { border-radius: 16px; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
+  .about-photos img:first-child { grid-row: span 2; aspect-ratio: auto; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+  .fact { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+  .fact b { display: block; font-family: "Cormorant Garamond", serif; font-size: 30px; color: var(--accent); line-height: 1.1; }
+  .fact span { font-size: 13px; color: var(--muted); }
+  .rooms { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px; }
+  .room { background: var(--white); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); display: flex; flex-direction: column; }
+  .room img { aspect-ratio: 16/10; object-fit: cover; width: 100%; }
+  .room-body { padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .room h3 { font-family: "Cormorant Garamond", serif; font-size: 30px; line-height: 1.1; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { background: var(--cream); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 13px; color: var(--muted); }
+  .room-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 10px; gap: 12px; }
+  .price b { font-size: 24px; }
+  .price span { color: var(--muted); font-size: 14px; }
+  .amen { background: var(--dark); color: #eaf0f3; }
+  .amen h2 { color: #fff; }
+  .amen .eyebrow { color: var(--wood); }
+  .amen .sub { color: #b9c7cc; }
+  .amen-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 36px; }
+  .amen-item { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 18px; display: flex; gap: 12px; align-items: flex-start; }
+  .amen-item i { font-style: normal; font-size: 24px; line-height: 1; }
+  .amen-item b { display: block; font-size: 15px; color: #fff; }
+  .amen-item span { font-size: 13px; color: #b9c7cc; }
+  .gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 240px 240px; gap: 14px; margin-top: 36px; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
+  .gallery img:first-child { grid-row: span 2; }
+  .reviews { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; align-items: center; margin-top: 28px; }
+  .big-rating { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; text-align: center; }
+  .big-rating b { font-family: "Cormorant Garamond", serif; font-size: 80px; line-height: 1; color: var(--accent); }
+  .big-rating .stars { color: #e6a93a; font-size: 22px; letter-spacing: 2px; }
+  .why { display: grid; gap: 12px; }
+  .why div { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; font-size: 16px; }
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+  .card h3 { font-family: "Cormorant Garamond", serif; font-size: 30px; margin-bottom: 12px; }
+  .card p { color: var(--muted); margin-bottom: 8px; }
+  .card .btn { margin-top: 10px; margin-right: 8px; }
+  .map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); min-height: 320px; }
+  .map iframe { width: 100%; height: 100%; min-height: 320px; border: 0; display: block; }
+  footer { background: var(--ink); color: #c9cfcc; padding: 36px 0; font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .bot-fab { position: fixed; right: 20px; bottom: 20px; z-index: 50; display: flex; align-items: center; gap: 10px; background: var(--accent); color: #fff; border: 0; border-radius: 999px; padding: 14px 20px 14px 14px; font: 700 15px "Manrope", sans-serif; box-shadow: 0 16px 40px -10px rgba(0,0,0,.45); cursor: pointer; }
+  .bot-fab .ava { width: 34px; height: 34px; border-radius: 50%; background: var(--wood); display: grid; place-items: center; font-size: 18px; }
+  .bot-fab .ping { position: absolute; top: 6px; left: 38px; width: 10px; height: 10px; border-radius: 50%; background: #3ddc84; box-shadow: 0 0 0 3px var(--accent); }
+  .chat { position: fixed; right: 20px; bottom: 90px; z-index: 60; width: min(380px, calc(100vw - 32px)); height: min(560px, calc(100vh - 120px)); background: #0e1621; border-radius: 22px; box-shadow: 0 30px 80px -20px rgba(0,0,0,.5); display: none; flex-direction: column; overflow: hidden; }
+  .chat.open { display: flex; }
+  .chat-head { background: #17212b; color: #fff; padding: 14px 16px; display: flex; align-items: center; gap: 12px; }
+  .chat-head .ava { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; font-size: 20px; }
+  .chat-head b { display: block; font-size: 15px; }
+  .chat-head small { color: #6c9fd0; font-size: 12px; }
+  .chat-head button { margin-left: auto; background: none; border: 0; color: #8aa; font-size: 22px; cursor: pointer; }
+  .chat-body { flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .msg { max-width: 85%; padding: 9px 13px; border-radius: 16px 16px 16px 4px; background: #182533; color: #eef2f8; font-size: 14px; line-height: 1.45; white-space: pre-line; }
+  .msg.me { align-self: flex-end; background: #2b5278; border-radius: 16px 16px 4px 16px; }
+  .typing { color: #6c7b8b; font-size: 13px; padding: 2px 6px; }
+  .quick { padding: 10px; display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid #1d2a37; background: #0e1621; }
+  .quick button { background: #2b3b4d; color: #eef2f8; border: 0; border-radius: 10px; padding: 8px 10px; font: 600 13px "Manrope", sans-serif; cursor: pointer; }
+  .quick button:hover { background: #355069; }
+  .modal { position: fixed; inset: 0; z-index: 70; background: rgba(10,20,18,.55); display: none; align-items: center; justify-content: center; padding: 16px; }
+  .modal.open { display: flex; }
+  .modal-card { background: var(--white); border-radius: var(--radius); max-width: 440px; padding: 28px; }
+  .modal-card h3 { font-family: "Cormorant Garamond", serif; font-size: 32px; margin-bottom: 10px; }
+  .modal-card p { color: var(--muted); margin-bottom: 14px; }
+  .tg-preview { background: #0e1621; color: #eef2f8; border-radius: 14px; padding: 14px; font-size: 14px; line-height: 1.5; margin-bottom: 18px; }
+  .tg-preview b { color: #fff; }
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .book form { grid-template-columns: 1fr 1fr; }
+    .book .btn { grid-column: span 2; }
+    .about, .reviews, .contact { grid-template-columns: 1fr; }
+    .amen-grid { grid-template-columns: 1fr 1fr; }
+    .rooms { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; }
+    .gallery img:first-child { grid-column: span 2; grid-row: auto; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    section { padding: 60px 0; }
+    .brand span { font-size: 20px; }
+    .brand small { letter-spacing: .14em; white-space: nowrap; }
+    .brand small .place { display: none; }
+    .facts { gap: 8px; }
+    .fact { padding: 12px; }
+    .fact b { font-size: 22px; }
+    .amen-grid { grid-template-columns: 1fr; }
+    .hero { min-height: 74vh; }
+    .hero .wrap { padding-top: 80px; padding-bottom: 64px; }
+    .hero-actions .btn { flex: 1 1 100%; padding: 13px 18px; font-size: 15px; }
+    .demo-bar { font-size: 13px; padding: 8px 0; }
+    .bot-fab .label { display: none; }
+    .bot-fab { padding: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-bar" id="demoBar">
+  <div class="wrap">
+    <div>👋 Это <b>демо-версия сайта для «Поляна Зубров»</b>. Попробуйте выбрать даты или задать вопрос боту справа внизу.</div>
+    <button onclick="document.getElementById('demoBar').remove()">Скрыть</button>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 34 20" aria-hidden="true"><path d="M0 19 L10 7 L14 11 L20 2 L34 19 Z" fill="#2f5d34"/></svg>
+      <div><span>Поляна Зубров</span><small>Тур-домики<span class="place"> · Архыз</span></small></div>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">О нас</a><a href="#rooms">Номера</a><a href="#amenities">Удобства</a><a href="#reviews">Отзывы</a><a href="#contacts">Как добраться</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#book">Забронировать</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="img/p1.jpg" alt="Поляна Зубров, Архыз">
+  <div class="wrap">
+    <div class="rating"><span class="stars">★★★★★</span> 5,0 · 161 оценка на Яндекс.Картах</div>
+    <div class="kicker">Тур-домики · село Архыз</div>
+    <h1>Поляна Зубров</h1>
+    <p>Уютные деревянные домики в хвойном лесу. Две просторные комнаты, одна — с панорамным окном.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#book">Проверить свободные даты</a>
+      <a class="btn btn-ghost" href="#rooms">Смотреть номера</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap book" id="book">
+  <form id="bookForm">
+    <div class="field"><label for="in">Заезд</label><input id="in" type="date" required></div>
+    <div class="field"><label for="out">Выезд</label><input id="out" type="date" required></div>
+    <div class="field"><label for="guests">Гости</label>
+      <select id="guests"><option>1 гость</option><option selected>2 гостя</option><option>3 гостя</option><option>4 гостя</option><option>Семья с детьми</option></select>
+    </div>
+    <button class="btn btn-primary" type="submit">Найти номер</button>
+  </form>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="eyebrow">О нас</div>
+      <h2>Отдых в Архызе</h2>
+      <p class="sub">Отдельные домики посреди леса: тишина, свежий воздух и горы вокруг. На территории кафе, бассейн, общая кухня и площадки для пикника. Можно с питомцами.</p>
+      <div class="facts">
+        <div class="fact"><b>5,0</b><span>рейтинг гостей</span></div>
+        <div class="fact"><b>24/7</b><span>заселение</span></div>
+        <div class="fact"><b>2</b><span>комнаты в домике</span></div>
+      </div>
+    </div>
+    <div class="about-photos">
+      <img src="img/p6.jpg" alt="Поляна Зубров">
+      <img src="img/p7.jpg" alt="Поляна Зубров">
+      <img src="img/p2.jpg" alt="Поляна Зубров">
+    </div>
+  </div>
+</section>
+
+<section id="rooms" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Номера</div>
+    <h2>Выберите, где остановиться</h2>
+    <p class="sub">Цены от 3 000 до 4 500 ₽ за ночь — зависят от дат и количества гостей.</p>
+    <div class="rooms">
+      <article class="room">
+        <img src="img/p3.jpg" alt="Домик в лесу">
+        <div class="room-body">
+          <h3>Домик в лесу</h3>
+          <div class="chips"><span class="chip">до 4 гостей</span><span class="chip">2 комнаты</span><span class="chip">своя терраса</span></div>
+          <div class="room-foot">
+            <div class="price"><b>от 3 000 ₽</b> <span>/ ночь</span></div>
+            <button class="btn btn-primary btn-sm" data-room="Домик в лесу">Забронировать</button>
+          </div>
+        </div>
+      </article>
+      <article class="room">
+        <img src="img/p4.jpg" alt="Домик с панорамным окном">
+        <div class="room-body">
+          <h3>Домик с панорамным окном</h3>
+          <div class="chips"><span class="chip">до 4 гостей</span><span class="chip">вид на лес</span><span class="chip">уютная гостиная</span></div>
+          <div class="room-foot">
+            <div class="price"><b>от 4 500 ₽</b> <span>/ ночь</span></div>
+            <button class="btn btn-primary btn-sm" data-room="Домик с панорамным окном">Забронировать</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="amen" id="amenities">
+  <div class="wrap">
+    <div class="eyebrow">Удобства</div>
+    <h2>Всё для отдыха в горах</h2>
+    <p class="sub">То, за что гости возвращаются снова.</p>
+    <div class="amen-grid">
+      <div class="amen-item"><i>🌲</i><div><b>Хвойный лес</b><span>вокруг домиков</span></div></div>
+      <div class="amen-item"><i>🏊</i><div><b>Бассейн</b><span>на территории</span></div></div>
+      <div class="amen-item"><i>☕</i><div><b>Кафе</b><span>рядом с домиками</span></div></div>
+      <div class="amen-item"><i>🍳</i><div><b>Общая кухня</b><span>готовьте сами</span></div></div>
+      <div class="amen-item"><i>🔥</i><div><b>Площадка для пикника</b><span>мангал и беседки</span></div></div>
+      <div class="amen-item"><i>🐕</i><div><b>Можно с питомцами</b><span>берите с собой</span></div></div>
+      <div class="amen-item"><i>🚐</i><div><b>Трансфер</b><span>по запросу</span></div></div>
+      <div class="amen-item"><i>🅿️</i><div><b>Парковка</b><span>для гостей</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Фото</div>
+    <h2>Как у нас</h2>
+    <div class="gallery">
+      <img src="img/p2.jpg" alt="Поляна Зубров" loading="lazy">
+      <img src="img/p6.jpg" alt="Поляна Зубров" loading="lazy">
+      <img src="img/p4.jpg" alt="Поляна Зубров" loading="lazy">
+      <img src="img/p5.jpg" alt="Поляна Зубров" loading="lazy">
+      <img src="img/p8.jpg" alt="Поляна Зубров" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Отзывы</div>
+    <h2>Гости нас любят</h2>
+    <div class="reviews">
+      <div class="big-rating"><b>5,0</b><div class="stars">★★★★★</div><p style="color:var(--muted);margin-top:6px">161 оценка на Яндекс.Картах</p></div>
+      <div class="why">
+        <div>🌲 <b>Хвойный лес</b> — вокруг домиков</div>
+        <div>🏊 <b>Бассейн</b> — на территории</div>
+        <div>☕ <b>Кафе</b> — рядом с домиками</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts" style="padding-top:0">
+  <div class="wrap contact">
+    <div class="card">
+      <h3>Как нас найти</h3>
+      <p>📍 село Архыз, Поляна Зубров (Лесная ул.), Карачаево-Черкесия</p>
+      <p>📞 +7 (928) 382-21-97</p>
+      <a class="btn btn-primary" href="tel:+79283822197">Позвонить</a>
+      
+      <a class="btn btn-line" href="https://yandex.ru/maps/org/tur_domiki_polyana_zubrov/39161815946/" target="_blank" rel="noopener">Маршрут на Картах</a>
+    </div>
+    <div class="map"><iframe src="https://yandex.ru/map-widget/v1/?ll=41.31548%2C43.566942&z=15&pt=41.31548%2C43.566942%2Cpm2rdm" title="Карта: Поляна Зубров"></iframe></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© Поляна Зубров · тур-домики в Архызе</div>
+    <div>Демо-сайт подготовил Ислам · Dev — сайты и Telegram-боты для бизнеса</div>
+  </div>
+</footer>
+
+<button class="bot-fab" id="botFab" aria-label="Задать вопрос"><span class="ava">🏔️</span><span class="ping"></span><span class="label">Задать вопрос</span></button>
+<div class="chat" id="chat" role="dialog" aria-label="Чат с ботом">
+  <div class="chat-head"><div class="ava">🏔️</div><div><b>Поляна Зубров · бот</b><small>онлайн 24/7</small></div><button id="chatClose" aria-label="Закрыть">×</button></div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="quick" id="quick"></div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <h3>Заявка отправлена ✅</h3>
+    <p>Это демо. На настоящем сайте заявка сразу пришла бы владельцу в Telegram — вот так:</p>
+    <div class="tg-preview" id="tgPreview"></div>
+    <button class="btn btn-primary" onclick="document.getElementById('modal').classList.remove('open')">Понятно</button>
+  </div>
+</div>
+
+<script>
+  const fmt = (v) => v ? new Date(v).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) : '—';
+  const today = new Date();
+  const iso = (d) => d.toISOString().slice(0, 10);
+  const inEl = document.getElementById('in'), outEl = document.getElementById('out');
+  inEl.min = iso(today);
+  inEl.value = iso(new Date(today.getTime() + 14 * 864e5));
+  outEl.value = iso(new Date(today.getTime() + 17 * 864e5));
+  function showLead(room) {
+    document.getElementById('tgPreview').innerHTML = '🔔 <b>Новая заявка с сайта</b><br>' + (room ? 'Номер: ' + room + '<br>' : '') +
+      'Даты: ' + fmt(inEl.value) + ' — ' + fmt(outEl.value) + '<br>Гости: ' + document.getElementById('guests').value + '<br>Контакт: телефон гостя';
+    document.getElementById('modal').classList.add('open');
+  }
+  document.getElementById('bookForm').addEventListener('submit', (e) => { e.preventDefault(); showLead(''); });
+  document.querySelectorAll('[data-room]').forEach((b) => b.addEventListener('click', () => showLead(b.dataset.room)));
+
+  const chat = document.getElementById('chat'), body = document.getElementById('chatBody'), quick = document.getElementById('quick');
+  const ANSWERS = {"Есть места на даты?":"Подскажите, на какие даты планируете? Например: 10–13 января, 2 гостя.\nЯ проверю наличие и пришлю варианты 🙌","Сколько стоит?":"Проживание — от 3 000 ₽ за ночь.\nТочная цена зависит от дат и количества гостей.","Что есть на территории?":"🌲 Хвойный лес\n🏊 Бассейн\n☕ Кафе\n🍳 Общая кухня","Как добраться?":"Мы в селе Архыз: село Архыз, Поляна Зубров (Лесная ул.).\nЕсть парковка для гостей 🚗","Хочу забронировать":"Отлично! Напишите даты, количество гостей и телефон — хозяин свяжется с вами и подтвердит бронь.\n\n(В демо заявка не отправляется.)"};
+  function add(text, me) { const m = document.createElement('div'); m.className = 'msg' + (me ? ' me' : ''); m.textContent = text; body.appendChild(m); body.scrollTop = body.scrollHeight; }
+  function botSay(text) { const t = document.createElement('div'); t.className = 'typing'; t.textContent = 'печатает…'; body.appendChild(t); body.scrollTop = body.scrollHeight; setTimeout(() => { t.remove(); add(text, false); }, 700); }
+  function renderQuick() { quick.innerHTML = ''; Object.keys(ANSWERS).forEach((q) => { const b = document.createElement('button'); b.textContent = q; b.onclick = () => { add(q, true); botSay(ANSWERS[q]); }; quick.appendChild(b); }); }
+  let started = false;
+  document.getElementById('botFab').onclick = () => { chat.classList.toggle('open'); if (!started) { started = true; botSay("Здравствуйте! Я бот «Поляна Зубров» 🏔️\nОтвечаю круглосуточно. Что вас интересует?"); renderQuick(); } };
+  document.getElementById('chatClose').onclick = () => chat.classList.remove('open');
+</script>
+</body>
+</html>
